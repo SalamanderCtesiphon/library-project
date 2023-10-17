@@ -1,15 +1,14 @@
-import './App.css'
-import Header from './components/Header'
-import InputForm from './components/InputForm'
+import "./App.css";
+import Header from "./components/Header";
+import InputForm from "./components/InputForm";
 
 function App() {
-
   return (
     <>
-    <Header />
-    <InputForm />
+      <Header />
+      <InputForm />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function InputForm() {
   return (
@@ -9,7 +9,7 @@ function InputForm() {
         </form>
       </section>
     </>
-  )
+  );
 }
 
-export default InputForm
+export default InputForm;
