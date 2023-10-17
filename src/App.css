@@ -57,3 +57,7 @@ button {
   box-shadow: 1px 1px 10px 4px rgba(0, 0, 0, 0.493);
   height: 280px;
 }
+
+#no-books {
+  margin-top: 50px;
+}

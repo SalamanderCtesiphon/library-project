@@ -75,11 +75,15 @@ function App() {
         have_read={have_read}
         setHave_read={setHave_read}
       />
-      <section className="library-display">
-        {myLibrary.map((item) => (
-          <BookCard item={item} key={item.id} handleDelete={handleDelete} />
-        ))}
-      </section>
+      {myLibrary.length === 0 ? (
+        <h2 id="no-books">There are No Books in Your Library.</h2>
+      ) : (
+        <section className="library-display">
+          {myLibrary.map((item) => (
+            <BookCard item={item} key={item.id} handleDelete={handleDelete} />
+          ))}
+        </section>
+      )}
     </>
   )
 }
