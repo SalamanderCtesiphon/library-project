@@ -6,14 +6,26 @@ function InputForm() {
       <section>
         <form>
           <h3>Input Book Details</h3>
-          <label for="title">Title:</label>
-          <input type="text" id="title"></input>
-          <label for="author">Author:</label>
-          <input type="text" id="author"></input>
-          <label for="pages">Number of Pages:</label>
-          <input type="text" id="pages"></input>
-          <label for="have_read">Have you read this book:</label>
-          <input type="text" id="have_read"></input>
+          <label for="title">
+            Book Title:
+            <br />
+            <input type="text" id="title"></input>
+          </label>
+
+          <label for="author">
+            Book Author:
+            <br />
+            <input type="text" id="author"></input>
+          </label>
+
+          <label for="pages">
+            Number of Pages: <input type="text" id="pages"></input>
+          </label>
+
+          <label for="have_read">
+            Have you read this book: <input type="text" id="have_read"></input>
+          </label>
+
           <button type="submit">Submit</button>
         </form>
       </section>

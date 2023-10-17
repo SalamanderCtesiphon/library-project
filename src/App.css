@@ -12,7 +12,10 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  text-align: left;
+  justify-content: left;
+  width: 200px;
+  height: auto;
   border: 1px solid slategrey;
   padding: 1rem;
   border-radius: 12px;
