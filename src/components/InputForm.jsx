@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function InputForm() {
   return (
@@ -14,10 +14,11 @@ function InputForm() {
           <input type="text" id="pages"></input>
           <label for="have_read">Have you read this book:</label>
           <input type="text" id="have_read"></input>
+          <button type="submit">Submit</button>
         </form>
       </section>
     </>
-  );
+  )
 }
 
-export default InputForm;
+export default InputForm

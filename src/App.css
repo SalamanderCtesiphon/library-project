@@ -8,3 +8,17 @@
 .header {
   justify-self: start;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid slategrey;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 1px 1px 10px 4px rgba(0, 0, 0, 0.493);
+}
+
+input {
+  margin: 0.5rem;
+}
