@@ -96,6 +96,16 @@ function App() {
           <button type="submit">Submit</button>
         </form>
       </section>
+      <section className="library-display">
+        {myLibrary.map((item) => (
+          <div className="book-card">
+            <div>{item.title}</div>
+            <div>{item.author}</div>
+            <div>{item.pages} pgs.</div>
+            <div>Have read? {item.have_read}</div>
+          </div>
+        ))}
+      </section>
     </>
   )
 }
