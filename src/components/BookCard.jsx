@@ -9,7 +9,7 @@ function BookCard({ item, handleDelete }) {
         <div>{item.pages} pgs.</div>
         <div>Have read? {item.have_read}.</div>
         <button>toggle read status</button>
-        <button onClick={handleDelete}>delete</button>
+        <button onClick={() => handleDelete(item.id)}>delete</button>
       </div>
     </>
   )

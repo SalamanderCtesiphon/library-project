@@ -53,8 +53,8 @@ function App() {
     setHave_read('')
   }
 
-  function handleDelete() {
-    console.log('clicked')
+  function handleDelete(id) {
+    setMyLibrary(myLibrary.filter((item) => item.id !== id))
   }
 
   useEffect(() => {
