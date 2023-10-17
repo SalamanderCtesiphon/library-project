@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function InputForm() {
   const [title, setTitle] = useState('')
@@ -23,15 +23,18 @@ function InputForm() {
       have_read,
     })
 
-    console.log(book)
     setTitle('')
     setAuthor('')
     setPages('')
     setHave_read('')
 
     setMyLibrary([...myLibrary, book])
-    console.log(myLibrary)
   }
+
+  useEffect(() => {
+    console.log(book)
+    console.log(myLibrary)
+  }, [myLibrary])
 
   return (
     <>
