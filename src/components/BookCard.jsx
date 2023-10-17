@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BookCard({ item }) {
+function BookCard({ item, handleDelete }) {
   return (
     <>
       <div className="book-card">
@@ -9,7 +9,7 @@ function BookCard({ item }) {
         <div>{item.pages} pgs.</div>
         <div>Have read? {item.have_read}.</div>
         <button>toggle read status</button>
-        <button>delete</button>
+        <button onClick={handleDelete}>delete</button>
       </div>
     </>
   )

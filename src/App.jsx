@@ -53,8 +53,12 @@ function App() {
     setHave_read('')
   }
 
+  function handleDelete() {
+    console.log('clicked')
+  }
+
   useEffect(() => {
-    console.log(myLibrary)
+    //console.log(myLibrary)
   }, [myLibrary])
 
   return (
@@ -73,7 +77,7 @@ function App() {
       />
       <section className="library-display">
         {myLibrary.map((item) => (
-          <BookCard item={item} key={item.id} />
+          <BookCard item={item} key={item.id} handleDelete={handleDelete} />
         ))}
       </section>
     </>
