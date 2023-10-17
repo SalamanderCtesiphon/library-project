@@ -16,18 +16,13 @@ function InputForm() {
   function handleSubmit(e) {
     e.preventDefault()
 
-    setTitle(title)
-    setAuthor(author)
-    setPages(pages)
-    setHave_read(have_read)
-
     setBook({
       title,
       author,
       pages,
       have_read,
     })
-    setBook(book)
+
     console.log(book)
     setTitle('')
     setAuthor('')
