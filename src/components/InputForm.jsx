@@ -5,9 +5,24 @@ function InputForm() {
   const [author, setAuthor] = useState('')
   const [pages, setPages] = useState('')
   const [have_read, setHave_read] = useState('')
+  const [book, setBook] = useState({
+    title: title,
+    author: author,
+    pages: pages,
+    have_read: have_read,
+  })
+  const [myLibrary, setMyLibrary] = useState([])
 
   function handleSubmit(e) {
     e.preventDefault()
+    setBook({
+      title,
+      author,
+      pages,
+      have_read,
+    })
+    setMyLibrary([...myLibrary, book])
+    console.log(myLibrary)
   }
 
   return (
