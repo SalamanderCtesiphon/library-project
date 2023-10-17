@@ -2,6 +2,7 @@ import './App.css'
 import React, { useState } from 'react'
 import Header from './components/Header'
 import BookForm from './components/BookForm'
+import BookCard from './components/BookCard'
 
 function App() {
   const [title, setTitle] = useState('')
@@ -61,14 +62,7 @@ function App() {
       />
       <section className="library-display">
         {myLibrary.map((item) => (
-          <div className="book-card" key={item.title}>
-            <h2>{item.title}</h2>
-            <div>{item.author}</div>
-            <div>{item.pages} pgs.</div>
-            <div>Have read? {item.have_read}.</div>
-            <button>toggle read status</button>
-            <button>delete</button>
-          </div>
+          <BookCard item={item} key={item.title} />
         ))}
       </section>
     </>
