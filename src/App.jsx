@@ -99,7 +99,7 @@ function App() {
       <section className="library-display">
         {myLibrary.map((item) => (
           <div className="book-card">
-            <div>{item.title}</div>
+            <h2>{item.title}</h2>
             <div>{item.author}</div>
             <div>{item.pages} pgs.</div>
             <div>Have read? {item.have_read}</div>
