@@ -1,6 +1,7 @@
 import './App.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header'
+import BookForm from './components/BookForm'
 
 function App() {
   const [title, setTitle] = useState('')
@@ -8,101 +9,65 @@ function App() {
   const [pages, setPages] = useState('')
   const [have_read, setHave_read] = useState('')
   const [book, setBook] = useState(null)
-  const [myLibrary, setMyLibrary] = useState([])
+  const [myLibrary, setMyLibrary] = useState([
+    {
+      title: 'Crime and Punishment',
+      author: 'Fyodor Dostoevsky',
+      pages: '542',
+      have_read: 'yes',
+    },
+    {
+      title: 'The Hobbit',
+      author: 'J. R. R. Tolkien',
+      pages: '305',
+      have_read: 'yes',
+    },
+    {
+      title: 'Don Quixote',
+      author: 'Miguel DeCervantes',
+      pages: '1034',
+      have_read: 'yes',
+    },
+  ])
 
   function handleSubmit(e) {
     e.preventDefault()
-
-    if (book === null) {
-      setBook({
-        title,
-        author,
-        pages,
-        have_read,
-      })
-      setMyLibrary([{ title, author, pages, have_read }])
-      setTitle('')
-      setAuthor('')
-      setPages('')
-      setHave_read('')
-    } else {
-      setBook({
-        title,
-        author,
-        pages,
-        have_read,
-      })
-      setMyLibrary([...myLibrary, { title, author, pages, have_read }])
-      setTitle('')
-      setAuthor('')
-      setPages('')
-      setHave_read('')
-    }
+    setBook({
+      title,
+      author,
+      pages,
+      have_read,
+    })
+    setMyLibrary([...myLibrary, { title, author, pages, have_read }])
+    setTitle('')
+    setAuthor('')
+    setPages('')
+    setHave_read('')
   }
-
-  useEffect(() => {
-    console.log(book)
-    console.log(myLibrary)
-  }, [myLibrary, book])
 
   return (
     <>
       <Header />
-      <section>
-        <form onSubmit={handleSubmit}>
-          <h3>Input Book Details</h3>
-          <label htmlFor="title">
-            Book Title:
-            <br />
-            <input
-              type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            ></input>
-          </label>
-
-          <label htmlFor="author">
-            Book Author:
-            <br />
-            <input
-              type="text"
-              id="author"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-            ></input>
-          </label>
-
-          <label htmlFor="pages">
-            Number of Pages:{' '}
-            <input
-              type="text"
-              id="pages"
-              value={pages}
-              onChange={(e) => setPages(e.target.value)}
-            ></input>
-          </label>
-
-          <label htmlFor="have_read">
-            Have you read this book:{' '}
-            <input
-              type="text"
-              id="have_read"
-              value={have_read}
-              onChange={(e) => setHave_read(e.target.value)}
-            ></input>
-          </label>
-
-          <button type="submit">Submit</button>
-        </form>
-      </section>
+      <BookForm
+        handleSubmit={handleSubmit}
+        title={title}
+        setTitle={setTitle}
+        author={author}
+        setAuthor={setAuthor}
+        pages={pages}
+        setPages={setPages}
+        have_read={have_read}
+        setHave_read={setHave_read}
+      />
       <section className="library-display">
         {myLibrary.map((item) => (
-          <div className="book-card">
+          <div className="book-card" key={item.title}>
             <h2>{item.title}</h2>
             <div>{item.author}</div>
             <div>{item.pages} pgs.</div>
-            <div>Have read? {item.have_read}</div>
+            <div>Have read? {item.have_read}.</div>
+            <button>toggle read status</button>
+            <button>delete</button>
           </div>
         ))}
       </section>
