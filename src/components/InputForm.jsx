@@ -5,36 +5,43 @@ function InputForm() {
   const [author, setAuthor] = useState('')
   const [pages, setPages] = useState('')
   const [have_read, setHave_read] = useState('')
-  const [book, setBook] = useState({
-    title: '',
-    author: '',
-    pages: '',
-    have_read: '',
-  })
+  const [book, setBook] = useState(null)
   const [myLibrary, setMyLibrary] = useState([])
 
   function handleSubmit(e) {
     e.preventDefault()
 
-    setBook({
-      title,
-      author,
-      pages,
-      have_read,
-    })
-
-    setTitle('')
-    setAuthor('')
-    setPages('')
-    setHave_read('')
-
-    setMyLibrary([...myLibrary, book])
+    if (book === null) {
+      setBook({
+        title,
+        author,
+        pages,
+        have_read,
+      })
+      setMyLibrary([{ title, author, pages, have_read }])
+      setTitle('')
+      setAuthor('')
+      setPages('')
+      setHave_read('')
+    } else {
+      setBook({
+        title,
+        author,
+        pages,
+        have_read,
+      })
+      setMyLibrary([...myLibrary, { title, author, pages, have_read }])
+      setTitle('')
+      setAuthor('')
+      setPages('')
+      setHave_read('')
+    }
   }
 
   useEffect(() => {
     console.log(book)
     console.log(myLibrary)
-  }, [myLibrary])
+  }, [myLibrary, book])
 
   return (
     <>
