@@ -2,10 +2,10 @@ import './App.css'
 import React, { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 import Header from './components/Header'
-import BookForm from './components/BookForm'
 import BookCard from './components/BookCard'
 
 function App() {
+  const [open, setOpen] = React.useState(false)
   const [showForm, setShowForm] = useState(false)
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -43,6 +43,7 @@ function App() {
       alert('Please fill out form completely')
       return
     }
+    handleClose()
     setShowForm(false)
     setId(uuid())
     setBook({
@@ -85,6 +86,9 @@ function App() {
     setShowForm(false)
   }
 
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   useEffect(() => {
     //console.log(myLibrary)
   }, [myLibrary])
@@ -101,40 +105,27 @@ function App() {
         setPages={setPages}
         have_read={have_read}
         setHave_read={setHave_read}
-        closeForm={closeForm}
+        open={open}
+        setOpen={setOpen}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
       />
-      <div className="form-holder">
-        {showForm === false ? (
-          <button onClick={showBook}>Add A Book</button>
+      <div className="container">
+        {myLibrary.length === 0 ? (
+          <h2 id="no-books">There are No Books in Your Library.</h2>
         ) : (
-          <BookForm
-            handleSubmit={handleSubmit}
-            title={title}
-            setTitle={setTitle}
-            author={author}
-            setAuthor={setAuthor}
-            pages={pages}
-            setPages={setPages}
-            have_read={have_read}
-            setHave_read={setHave_read}
-            closeForm={closeForm}
-          />
+          <section className="library-display">
+            {myLibrary.map((item) => (
+              <BookCard
+                item={item}
+                key={item.id}
+                handleDelete={handleDelete}
+                toggleReadStatus={toggleReadStatus}
+              />
+            ))}
+          </section>
         )}
       </div>
-      {myLibrary.length === 0 ? (
-        <h2 id="no-books">There are No Books in Your Library.</h2>
-      ) : (
-        <section className="library-display">
-          {myLibrary.map((item) => (
-            <BookCard
-              item={item}
-              key={item.id}
-              handleDelete={handleDelete}
-              toggleReadStatus={toggleReadStatus}
-            />
-          ))}
-        </section>
-      )}
     </>
   )
 }

@@ -12,6 +12,10 @@ function Header({
   have_read,
   setHave_read,
   closeForm,
+  open,
+  setOpen,
+  handleOpen,
+  handleClose,
 }) {
   return (
     <>
@@ -28,6 +32,10 @@ function Header({
           have_read={have_read}
           setHave_read={setHave_read}
           closeForm={closeForm}
+          open={open}
+          setOpen={setOpen}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
         />
       </header>
     </>

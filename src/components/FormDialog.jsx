@@ -1,17 +1,21 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
+import { Box } from '@mui/material'
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
+  width: 200,
+  bgcolor: '#242424',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  color: 'rgba(255, 255, 255, 0.87)',
+  display: 'flex',
+  justifyContent: 'center',
 }
 
 export default function BasicModal({
@@ -24,14 +28,13 @@ export default function BasicModal({
   setPages,
   have_read,
   setHave_read,
-  closeForm,
+  open,
+  setOpen,
+  handleOpen,
+  handleClose,
 }) {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-
   return (
-    <div>
+    <div className="modal">
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
@@ -39,7 +42,7 @@ export default function BasicModal({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <section>
+        <Box sx={style}>
           <form onSubmit={handleSubmit}>
             <h3>Input Book Details</h3>
             <label htmlFor="title">
@@ -86,10 +89,10 @@ export default function BasicModal({
 
             <button type="submit">Submit</button>
             <button type="button" onClick={handleClose}>
-              Cancel
+              Close
             </button>
           </form>
-        </section>
+        </Box>
       </Modal>
     </div>
   )
