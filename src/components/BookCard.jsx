@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BookCard({ item, handleDelete }) {
+function BookCard({ item, handleDelete, toggleReadStatus }) {
   return (
     <>
       <div className="book-card">
@@ -8,7 +8,9 @@ function BookCard({ item, handleDelete }) {
         <div>{item.author}</div>
         <div>{item.pages} pgs.</div>
         <div>Have read? {item.have_read}.</div>
-        <button>toggle read status</button>
+        <button onClick={() => toggleReadStatus(item.id)}>
+          toggle read status
+        </button>
         <button onClick={() => handleDelete(item.id)}>delete</button>
       </div>
     </>

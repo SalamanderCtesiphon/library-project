@@ -57,6 +57,20 @@ function App() {
     setMyLibrary(myLibrary.filter((item) => item.id !== id))
   }
 
+  function toggleReadStatus(id) {
+    myLibrary.map((item) => {
+      if (item.id === id) {
+        if (item.have_read === 'yes') {
+          setHave_read('no')
+        } else {
+          setHave_read('yes')
+        }
+        return item
+      }
+      setMyLibrary([...myLibrary, item])
+    })
+  }
+
   useEffect(() => {
     //console.log(myLibrary)
   }, [myLibrary])
@@ -80,7 +94,12 @@ function App() {
       ) : (
         <section className="library-display">
           {myLibrary.map((item) => (
-            <BookCard item={item} key={item.id} handleDelete={handleDelete} />
+            <BookCard
+              item={item}
+              key={item.id}
+              handleDelete={handleDelete}
+              toggleReadStatus={toggleReadStatus}
+            />
           ))}
         </section>
       )}
