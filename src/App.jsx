@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 import Header from './components/Header'
 import BookCard from './components/BookCard'
+import IntroModal from './components/IntroModal'
 
 function App() {
   const [open, setOpen] = React.useState(false)
@@ -86,6 +87,7 @@ function App() {
 
   return (
     <>
+      <IntroModal />
       <Header
         handleSubmit={handleSubmit}
         title={title}
