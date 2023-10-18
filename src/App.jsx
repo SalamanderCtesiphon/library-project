@@ -68,13 +68,12 @@ function App() {
     myLibrary.map((item) => {
       if (item.id === id) {
         if (item.have_read === 'yes') {
-          setHave_read('no')
+          item.have_read = 'no'
         } else {
-          setHave_read('yes')
+          item.have_read = 'yes'
         }
-        return item
+        setMyLibrary([...myLibrary, item])
       }
-      setMyLibrary([...myLibrary, item])
     })
   }
 
