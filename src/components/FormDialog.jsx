@@ -35,7 +35,7 @@ export default function BasicModal({
 }) {
   return (
     <div className="modal">
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Add A Book</Button>
       <Modal
         open={open}
         onClose={handleClose}
