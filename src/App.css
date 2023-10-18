@@ -23,7 +23,10 @@ section {
 }
 
 .form-holder {
-  height: 375px;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 form {

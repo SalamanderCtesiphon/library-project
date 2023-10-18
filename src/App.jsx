@@ -39,6 +39,10 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    if (title === '' || author === '' || pages === '' || have_read === '') {
+      alert('Please fill out form completely')
+      return
+    }
     setShowForm(false)
     setId(uuid())
     setBook({
@@ -77,6 +81,10 @@ function App() {
     setShowForm(true)
   }
 
+  function closeForm() {
+    setShowForm(false)
+  }
+
   useEffect(() => {
     //console.log(myLibrary)
   }, [myLibrary])
@@ -98,6 +106,7 @@ function App() {
             setPages={setPages}
             have_read={have_read}
             setHave_read={setHave_read}
+            closeForm={closeForm}
           />
         )}
       </div>

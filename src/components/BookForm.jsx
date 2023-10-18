@@ -8,6 +8,7 @@ function BookForm({
   setPages,
   have_read,
   setHave_read,
+  closeForm,
 }) {
   return (
     <section>
@@ -56,6 +57,9 @@ function BookForm({
         </label>
 
         <button type="submit">Submit</button>
+        <button type="button" onClick={closeForm}>
+          Cancel
+        </button>
       </form>
     </section>
   )
