@@ -72,17 +72,9 @@ function App() {
         } else {
           item.have_read = 'yes'
         }
-        setMyLibrary([...myLibrary, item])
       }
+      setMyLibrary([...myLibrary])
     })
-  }
-
-  function showBook() {
-    setShowForm(true)
-  }
-
-  function closeForm() {
-    setShowForm(false)
   }
 
   const handleOpen = () => setOpen(true)
