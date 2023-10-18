@@ -91,7 +91,18 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header
+        handleSubmit={handleSubmit}
+        title={title}
+        setTitle={setTitle}
+        author={author}
+        setAuthor={setAuthor}
+        pages={pages}
+        setPages={setPages}
+        have_read={have_read}
+        setHave_read={setHave_read}
+        closeForm={closeForm}
+      />
       <div className="form-holder">
         {showForm === false ? (
           <button onClick={showBook}>Add A Book</button>
