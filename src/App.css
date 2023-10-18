@@ -10,7 +10,7 @@ h1, h2, h3 {
 }
 
 .header {
-  justify-self: start;
+  text-align: left;
 }
 
 section {
@@ -20,6 +20,10 @@ section {
   flex-direction: column;
   align-items: center;
   justify-self: center;
+}
+
+.form-holder {
+  height: 375px;
 }
 
 form {

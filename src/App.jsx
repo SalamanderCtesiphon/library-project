@@ -6,6 +6,7 @@ import BookForm from './components/BookForm'
 import BookCard from './components/BookCard'
 
 function App() {
+  const [showForm, setShowForm] = useState(false)
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [pages, setPages] = useState('')
@@ -38,6 +39,7 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    setShowForm(false)
     setId(uuid())
     setBook({
       id,
@@ -71,6 +73,10 @@ function App() {
     })
   }
 
+  function showBook() {
+    setShowForm(true)
+  }
+
   useEffect(() => {
     //console.log(myLibrary)
   }, [myLibrary])
@@ -78,17 +84,23 @@ function App() {
   return (
     <>
       <Header />
-      <BookForm
-        handleSubmit={handleSubmit}
-        title={title}
-        setTitle={setTitle}
-        author={author}
-        setAuthor={setAuthor}
-        pages={pages}
-        setPages={setPages}
-        have_read={have_read}
-        setHave_read={setHave_read}
-      />
+      <div className="form-holder">
+        {showForm === false ? (
+          <button onClick={showBook}>Add A Book</button>
+        ) : (
+          <BookForm
+            handleSubmit={handleSubmit}
+            title={title}
+            setTitle={setTitle}
+            author={author}
+            setAuthor={setAuthor}
+            pages={pages}
+            setPages={setPages}
+            have_read={have_read}
+            setHave_read={setHave_read}
+          />
+        )}
+      </div>
       {myLibrary.length === 0 ? (
         <h2 id="no-books">There are No Books in Your Library.</h2>
       ) : (

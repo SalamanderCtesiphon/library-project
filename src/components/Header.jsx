@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function Header() {
   return (
@@ -7,7 +7,7 @@ function Header() {
         <h1>The Library</h1>
       </header>
     </>
-  );
+  )
 }
 
-export default Header;
+export default Header
