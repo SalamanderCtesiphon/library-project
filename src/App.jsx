@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import uuid from 'react-uuid'
 import Header from './components/Header'
 import BookCard from './components/BookCard'
@@ -79,8 +79,6 @@ function App() {
 
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-
-  useEffect(() => {}, [myLibrary])
 
   return (
     <>
