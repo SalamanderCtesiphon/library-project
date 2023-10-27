@@ -80,6 +80,17 @@ function App() {
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
+  async function postToDb() {
+    try {
+      const docRef = await addDoc(collection(db, 'books'), {
+        todo: todo,
+      })
+      console.log('Document written with ID: ', docRef.id)
+    } catch (e) {
+      console.error('Error adding document: ', e)
+    }
+  }
+
   return (
     <>
       <Header
@@ -113,6 +124,8 @@ function App() {
           </section>
         )}
       </div>
+      <button onClick={() => postToDb()}>post to db WRITE</button>
+      <button onClick={() => getDb()}>get db READ</button>
     </>
   )
 }
